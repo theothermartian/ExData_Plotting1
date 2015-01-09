@@ -1,3 +1,5 @@
+#Reading data from text file
+#na.strings() is used to encode "?" in the dataset as NA values for easier processing
 data<-read.csv("household_power_consumption.txt",sep = ";",na.strings="?")
 
 wow=data[strptime(data$Date,format="%d/%m/%Y") == strptime("2/2/2007",format="%d/%m/%Y") | strptime(data$Date,format="%d/%m/%Y") == strptime("1/2/2007",format="%d/%m/%Y") ,]
@@ -33,5 +35,5 @@ legend("topright", legend = legend_labels, col = legend_colors, lty = 1, bg = "t
 par(new=FALSE)
 plot(wow$DateTime,wow$Global_reactive_power,type = "l",xlab="datetime",ylab="Global_reactive_power")
 
-
+#closing file
 dev.off()
